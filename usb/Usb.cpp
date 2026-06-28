@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.usb@1.1-service.gts4lv"
+#define LOG_TAG "android.hardware.usb@1.1-service.sdm660"
 
 #include <android-base/logging.h>
 #include <assert.h>

@@ -105,7 +105,7 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 	              "sdm845" | "sdm710")
 		          setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
 		      ;;
-	              "msmnile" | "sm6150" | "trinket" | "lito" | "atoll")
+	              "msmnile" | "sm6150" | "trinket" | "lito" | "atoll" | "bengal")
 			  setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,qdss,adb
 		      ;;
 	              *)
@@ -120,15 +120,6 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 	  esac
       fi
 fi
-
-usb_config=`getprop persist.sys.usb.config`
-case "$usb_config" in
-    "" | "adb") #USB persist config not set, select default configuration
-    setprop persist.sys.usb.config diag,adb
-    ;;
-  * )
-  ;; #USB persist config exists, do nothing
-esac
 
 # Start peripheral mode on primary USB controllers for Automotive platforms
 case "$soc_machine" in
@@ -172,15 +163,7 @@ if [ -d /config/usb_gadget ]; then
 		serialno=1234567
 		echo $serialno > /config/usb_gadget/g1/strings/0x409/serialnumber
 	fi
-
-	persist_comp=`getprop persist.sys.usb.config`
-	comp=`getprop sys.usb.config`
-	echo $persist_comp
-	echo $comp
-	if [ "$comp" != "$persist_comp" ]; then
-		echo "setting sys.usb.config"
-		setprop sys.usb.config $persist_comp
-	fi
+	setprop vendor.usb.configfs 1
 fi
 
 #

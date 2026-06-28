@@ -34,7 +34,7 @@ source "${HELPER}"
 setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${LINEAGE_ROOT}" true
 
 # Copyright headers and guards
-write_headers "gts4lv gts4lvwifi"
+write_headers "a9y18qlte"
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

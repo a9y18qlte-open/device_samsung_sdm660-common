@@ -1,5 +1,5 @@
 cc_defaults {
-    name: "android.hardware.audio-impl_gts4lv",
+    name: "android.hardware.audio-impl_sdm660",
     relative_install_path: "hw",
     proprietary: true,
     vendor: true,
@@ -45,8 +45,8 @@ cc_defaults {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@2.0-impl.gts4lv",
-    defaults: ["android.hardware.audio-impl_gts4lv"],
+    name: "android.hardware.audio@2.0-impl.sdm660",
+    defaults: ["android.hardware.audio-impl_sdm660"],
 
     shared_libs: [
         "android.hardware.audio@2.0",
@@ -62,8 +62,8 @@ cc_library_shared {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@4.0-impl.gts4lv",
-    defaults: ["android.hardware.audio-impl_gts4lv"],
+    name: "android.hardware.audio@4.0-impl.sdm660",
+    defaults: ["android.hardware.audio-impl_sdm660"],
 
     shared_libs: [
         "android.hardware.audio@4.0",
@@ -79,8 +79,8 @@ cc_library_shared {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@5.0-impl.gts4lv",
-    defaults: ["android.hardware.audio-impl_gts4lv"],
+    name: "android.hardware.audio@5.0-impl.sdm660",
+    defaults: ["android.hardware.audio-impl_sdm660"],
 
     shared_libs: [
         "android.hardware.audio@5.0",

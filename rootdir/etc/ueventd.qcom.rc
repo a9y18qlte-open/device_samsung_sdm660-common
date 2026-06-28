@@ -28,7 +28,7 @@
 # Firmware directory Path
 # Below macro will be read by uevent and path will
 # be added to search path for firmware loading
-firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/
+firmware_directories /vendor/firmware_mnt/image/  /vendor/firmware-modem/image/
 
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0660   system     oem_2901
@@ -56,15 +56,16 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/
 /dev/ipa_odl_ctl          0660   radio      radio
 /dev/ipa_adpl             0660   system     oem_2905
 /dev/synx_device          0660   root       camera
+/dev/hab                  0666   system     system
 
-#permissions for CSVT
-/dev/smd11                0660   radio      radio
-
-#permissions for USB
-/dev/usb_mtp_gadget       0660   system     mtp
+#permissions for MTP and SideSync
+/dev/usb_mtp_gadget      0660     system        mtp
 /dev/android_ssusbcon    0660     system        system
 /sys/class/android_usb/android0  f_rndis/ethaddr      0660  system   system
 /sys/class/android_usb/android0  terminal_version     0660  system   system
+
+#permissions for CSVT
+/dev/smd11                0660   radio      radio
 
 #permsissions for BT/FM
 /dev/smd2                 0660   bluetooth  bluetooth
@@ -142,12 +143,15 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/
 /dev/spcom                0660   system     system
 /dev/spss_utils           0660   system     system
 /dev/sp_kernel            0660   system     system
+/dev/sp_nvm               0660   system     system
 /dev/sp_ssr               0660   system     system
 /dev/sp_keymaster         0660   system     system
 /dev/sec_nvm_*            0660   system     system
 /dev/cryptoapp            0660   system     system
 /dev/spdaemon_ssr         0660   system     system
 /dev/iuicc                0660   system     system
+/dev/iuicc0               0660   system     system
+/dev/iuicc1               0660   system     system
 /dev/gemini0              0660   system     camera
 /dev/jpeg0                0660   system     camera
 /dev/jpeg1                0660   system     camera
@@ -229,7 +233,7 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/
 /dev/i2c-5                0660   media       media
 /dev/avtimer              0660   system     audio
 /dev/spidev2.0            0660   system     audio
-
+/dev/aud_pasthru_adsp     0660   system     audio
 # DVB devices
 /dev/dvb/adapter0/demux*  0440   media       media
 /dev/dvb/adapter0/dvr*    0660   media       media
@@ -275,6 +279,9 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/
 /sys/devices/platform/soc/a84000.i2c/i2c-2/2-0020/input/input*  secure_touch          0440 system drmrpc
 /sys/devices/platform/soc/a84000.i2c/i2c-2/2-0020/input/input*  secure_touch_enable   0660 system drmrpc
 
+# GNSS Device premissions
+/dev/gnss_sirf             0660   gps     gps
+
 # laser sensor access
 /sys/devices/virtual/input/input*                   enable_ps_sensor 0660  system   input
 /sys/devices/virtual/input/input*                   set_delay_ms     0660  system   input
@@ -297,6 +304,7 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/
 /sys/bus/pci/drivers/wil6210* 0000:01:00.0/net/wigig0/queues/rx-0/rps_cpus 0660 system system
 /sys/bus/pci/drivers/wil6210* 0000:01:00.0/net/wigig0/gro_flush_timeout 0660 system system
 /sys/devices/virtual/net/bond0 queues/rx-0/rps_cpus 0660 system system
+/dev/wigig_sensing        0660   system     system
 
 #nfc permissions
 /dev/nfc-nci              0660    nfc         nfc
@@ -341,20 +349,19 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/
 /dev/block/platform/soc/8804000.sdhci/by-name/frp       0600   system     system
 
 # Reactivation Lock
-/dev/block/platform/soc/7c4000.sdhci/by-name/steady    0660    system    system
+/dev/block/platform/soc/c0c4000.sdhci/by-name/steady    0660    system    system
 
 # Google FRP solution
-/dev/block/platform/soc/7c4000.sdhci/by-name/persistent    0660    system    system
+/dev/block/platform/soc/c0c4000.sdhci/by-name/persistent    0660    system    system
 
 # Reactivation Lock
-/dev/block/platform/soc/1d84000.ufshc/by-name/steady    0660    system    system
+/dev/block/platform/soc/1da4000.ufshc/by-name/steady    0660    system    system
 
 # Google FRP solution
-/dev/block/platform/soc/1d84000.ufshc/by-name/persistent    0660    system    system
+/dev/block/platform/soc/1da4000.ufshc/by-name/persistent    0660    system    system
 
 # Param permission
-/dev/block/platform/soc/1d84000.ufshc/by-name/param    0660    root    system
-/dev/block/platform/soc/7c4000.sdhci/by-name/param    0660    root    system
+/dev/block/platform/soc/c0c4000.sdhci/by-name/param    0660    root    system
 
 # Kmsg device
 /dev/kmsg                                               0620   root       system

@@ -4,7 +4,7 @@
     "target_path": "device/samsung/qcom-common"
   },
   {
-    "repository": "android_kernel_samsung_sdm670",
-    "target_path": "kernel/samsung/sdm670"
+    "repository": "android_kernel_samsung_sdm660",
+    "target_path": "kernel/samsung/sdm660"
   }
 ]

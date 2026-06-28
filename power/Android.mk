@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := libpower_feature.gts4lv
+LOCAL_MODULE := libpower_feature.sdm660
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_VENDOR_MODULE := true

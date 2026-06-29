@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-def FullOTA_InstallEnd():
+def FullOTA_InstallEnd(info):
   return
 
-def IncrementalOTA_InstallEnd():
+def IncrementalOTA_InstallEnd(info):
   return
